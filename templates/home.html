@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Templates</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing:border-box;
+        }
+        body{
+            background: linear-gradient(#ffba08, #faa307, #f48c06, #dc2f02, #9d0208, #6a040f, #370617, #03071e);
+            height:100vh;
+            width:100vw;
+        }
+        body p{
+            padding-left:40vw;
+        }
+        table{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            border: 2px solid white;
+            font-size:2rem;
+            flex-direction:column;
+            width:40vw;
+            padding:10px;
+            text-align:center;
+        }
+        table th{
+            color:white;
+            padding-left:40px
+        }
+        table td{
+        display:flex;
+        justify-content:center;
+        padding-left:40px;
+        }
+    </style>
+</head>
+<body>
+<p><img src="{{url_for('static', filename='unnamed.jpg')}}"></p>
+<h1>Hi {{name}}.</h1>
+<h2>How are you finding Flask sessions ?</h2>
+{%if name== "Jason" :%}
+<h3>You are the admin.</h3>
+{%else%}
+<p>You are a normal user</p>
+{%endif %}
+
+<table>
+        <thead>
+            <tr>
+                <th>Name </th>
+                <th> Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key in students %}
+                <tr>
+                    <td>{{key}}</td>
+                    <td>{{students [key]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
